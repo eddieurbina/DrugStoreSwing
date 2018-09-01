@@ -26,8 +26,6 @@ public class PharmacyUI extends javax.swing.JFrame {
     //Data for the second table
     DefaultTableModel modelTwo = new DefaultTableModel(); //for the next Tab
     
-    
-
     public PharmacyUI() {
         initComponents();
         ImageIcon imagen = new ImageIcon(getClass().getResource("/assets/online-store.png"));
@@ -49,8 +47,8 @@ public class PharmacyUI extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblSearch = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtSearchBar = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
         lblMedicine = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -81,12 +79,12 @@ public class PharmacyUI extends javax.swing.JFrame {
 
         jLabel1.setText("Product Search");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtSearchBar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        jButton1.setText("Search");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSearchActionPerformed(evt);
             }
         });
 
@@ -110,9 +108,9 @@ public class PharmacyUI extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)
+                        .addComponent(btnSearch)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnAdd))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -128,8 +126,8 @@ public class PharmacyUI extends javax.swing.JFrame {
                 .addGap(59, 59, 59)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
+                    .addComponent(txtSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch)
                     .addComponent(btnAdd))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -203,17 +201,19 @@ public class PharmacyUI extends javax.swing.JFrame {
     }//GEN-LAST:event_tblSearchMouseClicked
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        String[] datos = {
+        Object[] datos = {
                 tblSearch.getValueAt(tblSearch.getSelectedRow(), 0).toString(),
             tblSearch.getValueAt(tblSearch.getSelectedRow(), 1).toString()
               };
+        Boolean generic = Boolean.valueOf(tblSearch.getValueAt(tblSearch.getSelectedRow(), 2).toString());
+        System.out.println("Genérico: " + generic);
         modelTwo.addRow(datos);
         
     }//GEN-LAST:event_btnAddActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     public static void main(String args[]) {
 
@@ -226,16 +226,16 @@ public class PharmacyUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblMedicine;
     private javax.swing.JTabbedPane tabPane;
     private javax.swing.JTable tblSearch;
+    private javax.swing.JTextField txtSearchBar;
     // End of variables declaration//GEN-END:variables
 }
